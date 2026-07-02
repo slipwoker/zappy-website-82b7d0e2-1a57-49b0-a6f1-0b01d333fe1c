@@ -1,0 +1,117 @@
+# Rozi Therapy — Generative Engine Optimization Map
+
+> A holistic healing space that blends the art of natural pharmacy with the creation of gemstone jewelry. The brand carries a deeply spiritual and therapeutic atmosphere, evoking calm, nature, and inner healing. The website should feel like a sacred sanctuary — warm, grounding, and magical — reflecting the owner's role as both a healer and an artisan. Workshops are also a key offering, suggesting a community-oriented, educational dimension to the brand.
+
+---
+
+## Pages
+
+### בית
+https://rozi-therapy-82b7d0e2.zappy5.app
+התחברו לעולם קסום של רוקחות טבעית, תכשיטים מאבני חן וסדנאות מעוררות השראה. Rozi Therapy מזמינה אתכם למסע אל הריפוי הפנימי שלכם. כנסו עכשיו וגלו את המקדש שלכם.
+
+### בית מרקחת טבעי
+https://rozi-therapy-82b7d0e2.zappy5.app/natural-pharmacy
+גלו את סודות הרוקחות הטבעית עם פורמולות ייחודיות שנרקחו באהבה. צמחי מרפא, שמנים ותמציות לאיזון הגוף והנפש. התחילו את מסע הריפוי האישי שלכם עוד היום.
+
+### תכשיטי אבני חן
+https://rozi-therapy-82b7d0e2.zappy5.app/gemstone-jewelry
+ענדו את הקסם עם תכשיטים מאבני חן בעבודת יד, המשלבים יופי ואנרגיה מרפאה. כל פריט נוצר כקמע אישי להעצמה ואיזון. היכנסו לקולקציה ותמצאו את האבן שלכם.
+
+### סדנאות
+https://rozi-therapy-82b7d0e2.zappy5.app/workshops
+הצטרפו לסדנאות ייחודיות של רוקחות טבעית ויצירה באבני חן. חוויה קהילתית מעשירה שתחבר אתכם לכוחות הריפוי הפנימיים. בדקו את לוח הסדנאות הקרובות והבטיחו את מקומכם.
+
+### אודות
+https://rozi-therapy-82b7d0e2.zappy5.app/about
+מסע אל נבכי החזון של Rozi Therapy – מקום מפגש בין רוקחות טבעית לאומנות תכשיטים מאבני חן. קראו על הפילוסופיה, ההשראה והדרך שהובילה ליצירת המרחב המקודש הזה.
+
+### צור קשר
+https://rozi-therapy-82b7d0e2.zappy5.app/contact
+מוכנים להתחיל את המסע שלכם? צרו קשר עם Rozi Therapy לכל שאלה על תכשיטים מאבני חן, רוקחות טבעית או הרשמה לסדנאות. אנחנו כאן כדי להאיר את הדרך שלכם.
+
+### Products
+https://rozi-therapy-82b7d0e2.zappy5.app/products
+המוצרים שלנו - Rozi Therapy
+
+### Cart
+https://rozi-therapy-82b7d0e2.zappy5.app/cart
+עגלת הקניות שלך
+
+### Checkout
+https://rozi-therapy-82b7d0e2.zappy5.app/checkout
+תשלום
+
+### Login
+https://rozi-therapy-82b7d0e2.zappy5.app/login
+התחברות לקוחות
+
+### Account
+https://rozi-therapy-82b7d0e2.zappy5.app/account
+החשבון שלי
+
+### Order Success
+https://rozi-therapy-82b7d0e2.zappy5.app/order-success
+תודה על ההזמנה
+
+### Product Detail
+https://rozi-therapy-82b7d0e2.zappy5.app/product/:slug
+פרטי המוצר - Rozi Therapy
+
+### Category
+https://rozi-therapy-82b7d0e2.zappy5.app/category/:slug
+מוצרים - Rozi Therapy
+
+### תודה רבה | רוזי תרפיה
+https://rozi-therapy-82b7d0e2.zappy5.app/thank-you
+תודה על פנייתך לרוזי תרפיה. הודעתך התקבלה בהצלחה ונחזור אליך בהקדם האפשרי.
+
+## Legal & Policy
+
+### Privacy Policy
+https://rozi-therapy-82b7d0e2.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://rozi-therapy-82b7d0e2.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://rozi-therapy-82b7d0e2.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+## Products
+
+_No products are currently configured._
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Rozi Therapy
+A holistic healing space that blends the art of natural pharmacy with the creation of gemstone jewelry. The brand carries a deeply spiritual and therapeutic atmosphere, evoking calm, nature, and inner healing. The website should feel like a sacred sanctuary — warm, grounding, and magical — reflecting the owner's role as both a healer and an artisan. Workshops are also a key offering, suggesting a community-oriented, educational dimension to the brand.
+
+## Services/Products
+- רוקחות טבעית
+- תכשיטים מאבני חן
+- סדנאות
+
+## Target Audience
+- חובבי בריאות טבעית
+- מטפלים ברפואה הוליסטית
+- אספני תכשיטים מאבני חן
+
+## Industry
+Natural Wellness & Holistic Healing
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://rozi-therapy-82b7d0e2.zappy5.app/sitemap.xml
+- Robots: https://rozi-therapy-82b7d0e2.zappy5.app/robots.txt
+- Flattened page text (for LLMs): https://rozi-therapy-82b7d0e2.zappy5.app/llms-full.txt
+- Products (JSON): https://rozi-therapy-82b7d0e2.zappy5.app/products.json
+- Products (Google Merchant RSS): https://rozi-therapy-82b7d0e2.zappy5.app/product-feed.xml

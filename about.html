@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>הכירו את האומנית והמרפאה שמאחורי הקסם — Rozi Therapy</title>
+    <meta name="description" content="מסע אל נבכי החזון של Rozi Therapy – מקום מפגש בין רוקחות טבעית לאומנות תכשיטים מאבני חן. קראו על הפילוסופיה, ההשראה והדרך שהובילה ליצירת המרחב המקודש הזה.">
+    <meta name="keywords" content="אודות, רוקחות טבעית, תכשיטים מאבני חן, מרפאה הוליסטית, אומנית">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '82b7d0e2-1a57-49b0-a6f1-0b01d333fe1c',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        var clickMeta = {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        };
+        
+        trackEvent('click', clickMeta);
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        var navMeta = {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        };
+        
+        trackEvent('navigation', navMeta);
+      }
+    }, true);
+  }
+  
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <meta property="og:title" content="הכירו את האומנית והמרפאה שמאחורי הקסם — Rozi Therapy">
+    <meta property="og:description" content="מסע אל נבכי החזון של Rozi Therapy – מקום מפגש בין רוקחות טבעית לאומנות תכשיטים מאבני חן. קראו על הפילוסופיה, ההשראה והדרך שהובילה ליצירת המרחב המקודש הזה.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="הכירו את האומנית והמרפאה שמאחורי הקסם — Rozi Therapy">
+    <meta name="twitter:description" content="מסע אל נבכי החזון של Rozi Therapy – מקום מפגש בין רוקחות טבעית לאומנות תכשיטים מאבני חן. קראו על הפילוסופיה, ההשראה והדרך שהובילה ליצירת המרחב המקודש הזה.">
+    <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .skip-link { position: absolute; top: 0; left: 0; transform: translateY(-200%); padding: 12px 18px; background: var(--bg-dark, #1a1a1a); color: var(--text-light, #fff); font-weight: 600; border-radius: 0 0 8px 0; z-index: 10000; }
+    .skip-link:focus { transform: none; outline: 2px solid var(--ring, #fff); outline-offset: 2px; }
+    :focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 3px; }
+  </style>
+
+
+  
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: var(--text-dark, #333) !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+      [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 10px !important; padding-right: 28px !important; }
+      .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus (exclude catalog sub-menus that use <a> children instead of <li>) */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))):not(:has(> a)), .sub-menu:not(:has(li)):not(:has(> a)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .navbar .sub-menu.mobile-expanded, .nav-menu .sub-menu.mobile-expanded, #navMenu .sub-menu.mobile-expanded { max-height: none !important; overflow-y: visible !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; position: relative !important; min-height: 44px !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; min-width: 0 !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; min-width: 0 !important; padding: 0 !important; line-height: inherit !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: auto !important; background: transparent !important; border: none !important; cursor: pointer !important; color: var(--text-light) !important; position: static !important; flex-shrink: 0 !important; align-self: stretch !important; z-index: 2 !important; padding: 0 !important; margin: 0 !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; color: var(--text-light) !important; white-space: normal !important; }
+        .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+        [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 0 !important; padding-right: 28px !important; }
+        .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+        .nav-menu.active, #navMenu.active { max-width: 100vw !important; overflow-x: hidden !important; box-sizing: border-box !important; }
+        .navbar .sub-menu li a, nav.navbar .sub-menu li a, .zappy-products-dropdown .sub-menu a { color: var(--text-light) !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+
+    <style id="zappy-widget-visibility">
+      html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
+      html[dir="ltr"] .whatsapp-float, html:not([dir]) .whatsapp-float { left: 20px !important; right: auto !important; }
+      html[dir="rtl"] #mic-access-tool-general-button, html[dir="rtl"] .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="rtl"] ._access-icon { left: 20px !important; right: auto !important; }
+      html[dir="ltr"] #mic-access-tool-general-button, html[dir="ltr"] .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="ltr"] ._access-icon,
+      html:not([dir]) #mic-access-tool-general-button, html:not([dir]) .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool #mic-access-tool-general-button,
+      html:not([dir]) ._access-icon { right: 20px !important; left: auto !important; }
+      @media (max-width: 768px) { .whatsapp-float { display: flex !important; } }
+      @media (min-width: 769px) { .whatsapp-float { display: flex !important; } }
+      @media (max-width: 768px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        }
+      }
+      @media (min-width: 769px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        }
+      }
+    </style>
+</head>
+<body>
+
+
+    <div class="mobile-search-panel" id="mobile-search-panel">
+      <div class="search-wrapper">
+        <input type="text" id="mobile-search-input" placeholder="חיפוש מוצרים..." autocomplete="off">
+        <button class="search-submit" id="mobile-search-submit" title="חיפוש">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="close-search" id="close-mobile-search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="search-results" id="mobile-search-results"></div>
+    </div>
+  
+<script>window.ZAPPY_PRODUCTS_LISTING_PATH = "/products";</script>
+<script>window.ZAPPY_WEBSITE_ID = "82b7d0e2-1a57-49b0-a6f1-0b01d333fe1c";window.ZAPPY_API_BASE = "https://api.zappy5.com";</script><a class="skip-link" href="#main">דלג לתוכן הראשי</a>
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  
+  <button class="phone-header-btn" data-phone="[business_phone]" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+  </button>
+
+  <div class="nav-container">
+    <div class="nav-right-group"><div class="nav-brand">
+      <a href="/" class="logo-link"><img class="logo" src="/assets/site-------image-1.webp" alt="Rozi Therapy"></a>
+    </div><ul class="nav-menu" id="navMenu">
+
+    <li class="menu-item-has-children zappy-products-dropdown">
+      <a href="/products">
+        מוצרים
+        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </a>
+      <ul class="sub-menu" id="zappy-nav-category-links">
+        <li><a href="/products" data-i18n="ecom_products">מוצרים</a></li>
+        <!-- Categories will be loaded dynamically -->
+      </ul>
+    </li>
+  <li><a href="/">בית</a></li><li><a href="/natural-pharmacy">בית מרקחת טבעי</a></li><li><a href="/gemstone-jewelry">תכשיטי אבני חן</a></li><li><a href="/workshops">סדנאות</a></li><li><a href="/about">אודות</a></li><li><a href="/contact">צור קשר</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/login" class="login-link nav-login" title="התחברות"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="עגלת קניות"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></a><div class="nav-search-box">
+    <input type="text" class="nav-search-input" id="nav-search-input" placeholder="חיפוש מוצרים..." autocomplete="off">
+    <button class="nav-search-btn" id="nav-search-btn" title="חיפוש">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    </button>
+    <div class="nav-search-results" id="nav-search-results"></div>
+  </div></div><div class="nav-ecommerce-icons nav-icons-right"><button class="nav-search-toggle" id="mobile-search-toggle" title="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div></div>
+    
+    
+    
+    
+  </div>
+</nav>
+<script>
+
+// Navbar Mobile Menu Toggle and Contrast Fix
+(function() {
+  // Use 'load' event instead of 'DOMContentLoaded' to ensure we run AFTER all other scripts
+  window.addEventListener('load', function() {
+    
+    // FIX MOBILE BUTTON CONTRAST
+    // Detect navbar background color and apply contrasting color to mobile buttons
+    const navbar = document.querySelector('.navbar, nav, header');
+    if (!navbar) {
+      console.log('[Navbar] Navbar element not found');
+      return;
+    }
+    
+    // DECLARE VARIABLES EARLY to avoid Temporal Dead Zone errors
+    // These are used in multiple places below
+    let mobileToggle = document.getElementById('mobileToggle') ||
+                       document.querySelector('.mobile-toggle') ||
+                       document.querySelector('.hamburger') ||
+                       document.querySelector('.hamburger-menu') ||
+                       document.querySelector('.menu-toggle') ||
+                       document.querySelector('.burger-menu') ||
+                       document.querySelector('[aria-label="Menu"]') ||
+                       document.querySelector('[aria-label="תפריט"]');
+    
+    const phoneBtn = document.querySelector('.phone-header-btn');
+    
+    const computedStyle = window.getComputedStyle(navbar);
+    let bgColor = computedStyle.backgroundColor;
+    
+    console.log('[Navbar] Initial navbar background:', bgColor);
+    
+    // Check if background is transparent or rgba with 0 alpha
+    const isTransparent = bgColor === 'transparent' || 
+                         bgColor === 'rgba(0, 0, 0, 0)' ||
+                         (bgColor.startsWith('rgba') && bgColor.includes(', 0)'));
+    
+    if (isTransparent) {
+      // Check for background-image or gradient
+      const bgImage = computedStyle.backgroundImage;
+      if (bgImage && bgImage !== 'none') {
+        console.log('[Navbar] Navbar has background image/gradient, using dark text');
+        bgColor = 'rgb(240, 240, 240)'; // Assume light background
+      } else {
+        // Transparent navbar - check body background
+        const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+        console.log('[Navbar] Navbar transparent, using body background:', bodyBg);
+        bgColor = bodyBg;
+      }
+    }
+    
+    // Calculate luminance to determine if background is light or dark
+    const rgb = bgColor.match(/\d+/g);
+    if (rgb && rgb.length >= 3) {
+      const r = parseInt(rgb[0]);
+      const g = parseInt(rgb[1]);
+      const b = parseInt(rgb[2]);
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      
+      // Mobile button colors are set by Claude's AI-generated CSS (same as .nav-menu a)
+      // No dynamic color overrides needed - colors come from the generated navbar CSS
+      console.log('[Navbar] Mobile button colors preserved from Claude CSS (luminance:', luminance.toFixed(2) + ')');
+      
+      // FIX ICON SIZES - Ensure SVGs are properly sized and visible
+      // INJECT CRITICAL CSS TO OVERRIDE ANY CONFLICTING RULES
+      const criticalCSS = document.createElement('style');
+      criticalCSS.id = 'zappy-mobile-nav-fix';
+      const htmlLang = document.documentElement.lang || 'en';
+      const htmlDir = document.documentElement.dir || 'ltr';
+      // Check both dir attribute AND lang for RTL detection
+      // dir="rtl" is the most reliable indicator
+      const isRTL = htmlDir === 'rtl' || htmlLang === 'he' || htmlLang === 'ar';
+      
+      criticalCSS.textContent = `
+        /* Hide mobile buttons on desktop, show only on mobile */
+        @media (min-width: 769px) {
+          .mobile-toggle,
+          .phone-header-btn {
+            display: none !important;
+          }
+        }
+        
+        /* Show and position mobile buttons correctly on mobile */
+        @media (max-width: 768px) {
+          .navbar,
+          nav.navbar {
+            min-height: 70px !important;
+          }
+
+          .mobile-toggle,
+          .phone-header-btn {
+            position: absolute !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            margin-top: auto !important;
+            margin-bottom: auto !important;
+            transform: none !important;
+            z-index: 1001 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            cursor: pointer !important;
+            padding: 6px !important;
+            background: none !important;
+            color: var(--nav-text, var(--text-light)) !important;
+            touch-action: manipulation !important;
+            -webkit-tap-highlight-color: transparent !important;
+          }
+
+          html[data-zappy-site-type="ecommerce"] .phone-header-btn,
+          body[data-zappy-site-type="ecommerce"] .phone-header-btn,
+          html[data-zappy-site-type="ecommerce"] header .phone-header-btn,
+          html[data-zappy-site-type="ecommerce"] nav .phone-header-btn {
+            display: none !important;
+            visibility: hidden !important;
+            width: 0 !important;
+            height: 0 !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
+          }
+          
+          /* LTR positioning (default): hamburger LEFT, phone RIGHT */
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .mobile-toggle,
+          html[dir="ltr"] .mobile-toggle {
+            left: 12px !important;
+            right: auto !important;
+          }
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .phone-header-btn,
+          html[dir="ltr"] .phone-header-btn {
+            right: 12px !important;
+            left: auto !important;
+          }
+          
+          /* RTL positioning: hamburger RIGHT, phone LEFT */
+          html[dir="rtl"] .mobile-toggle,
+          html[lang="he"] .mobile-toggle,
+          html[lang="ar"] .mobile-toggle {
+            right: 12px !important;
+            left: auto !important;
+          }
+          html[dir="rtl"] .phone-header-btn,
+          html[lang="he"] .phone-header-btn,
+          html[lang="ar"] .phone-header-btn {
+            left: 12px !important;
+            right: auto !important;
+          }
+          
+          /* CRITICAL: Ensure nav-container has min-height on mobile */
+          /* All children are positioned absolutely/fixed on mobile, so height:auto collapses to 0 */
+          .nav-container {
+            min-height: 70px !important;
+            position: relative !important;
+          }
+          
+          /* Ensure SVG icons are properly sized and inherit color */
+          .mobile-toggle svg,
+          .phone-header-btn svg {
+            width: 24px !important;
+            height: 24px !important;
+            /* Don't force display - let JavaScript control hamburger/close toggle */
+          }
+          
+          /* Reset nav-cta-container on mobile - remove desktop box-shadow/padding */
+          /* that creates a visible ghost box when CTA button is hidden */
+          .nav-cta-container {
+            box-shadow: none !important;
+            padding: 0 !important;
+          }
+          
+          /* Hide nav-cta-container entirely on mobile when there's no lang-switcher */
+          /* (only the CTA button is inside, and it's hidden on mobile) */
+          .nav-cta-container:not(:has(.lang-switcher)) {
+            display: none !important;
+          }
+          
+          /* CRITICAL: Prevent hero image fade gradient from bleeding over headline text */
+          /* The .image-fade-gradient has bottom: -30px (extends below parent) */
+          /* On mobile stacked layout, this overlaps the h1 text below the image */
+          .hero-image-column {
+            overflow: hidden !important;
+          }
+          .image-fade-gradient {
+            bottom: 0 !important;
+          }
+          
+          /* Hide desktop language switcher on mobile - hamburger menu handles it */
+          /* High specificity to override stored CSS */
+          .lang-switcher,
+          .nav-cta-container .lang-switcher,
+          .nav-container .lang-switcher,
+          .navbar .lang-switcher,
+          .navbar .nav-cta-container .lang-switcher {
+            display: none !important;
+          }
+        }
+      `;
+      
+      // Remove existing fix if present and inject new one
+      const existing = document.getElementById('zappy-mobile-nav-fix');
+      if (existing) existing.remove();
+      document.head.appendChild(criticalCSS);
+      
+      console.log('[Navbar] Critical CSS injected for mobile nav positioning');
+      
+      // ONLY apply inline positioning styles on mobile viewport
+      // On desktop, the CSS handles hiding these buttons with display: none
+      // Inline styles were breaking desktop layout by overriding CSS
+      const isMobileViewport = window.innerWidth <= 768;
+      
+      if (mobileToggle) {
+        // Icon sizing applies to all viewports for consistency
+        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+        const closeIcon = mobileToggle.querySelector('.close-icon');
+        
+        if (hamburgerIcon) {
+          hamburgerIcon.style.setProperty('width', '24px', 'important');
+          hamburgerIcon.style.setProperty('height', '24px', 'important');
+          hamburgerIcon.style.setProperty('display', 'block', 'important'); // Show hamburger by default
+        }
+        if (closeIcon) {
+          closeIcon.style.setProperty('width', '24px', 'important');
+          closeIcon.style.setProperty('height', '24px', 'important');
+          closeIcon.style.setProperty('display', 'none', 'important'); // Hide close icon by default
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          mobileToggle.style.setProperty('position', 'absolute', 'important');
+          mobileToggle.style.setProperty('top', '0', 'important');
+          mobileToggle.style.setProperty('bottom', '0', 'important');
+          mobileToggle.style.setProperty('margin-top', 'auto', 'important');
+          mobileToggle.style.setProperty('margin-bottom', 'auto', 'important');
+          mobileToggle.style.setProperty('transform', 'none', 'important');
+          mobileToggle.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          
+          console.log('[Navbar] Mobile toggle positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          mobileToggle.style.removeProperty('position');
+          mobileToggle.style.removeProperty('top');
+          mobileToggle.style.removeProperty('transform');
+          mobileToggle.style.removeProperty('z-index');
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared mobile toggle inline positioning');
+        }
+      }
+      
+      if (phoneBtn) {
+        // Icon sizing applies to all viewports
+        const phoneIcon = phoneBtn.querySelector('svg');
+        if (phoneIcon) {
+          phoneIcon.style.width = '24px';
+          phoneIcon.style.height = '24px';
+          phoneIcon.setAttribute('width', '24');
+          phoneIcon.setAttribute('height', '24');
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          phoneBtn.style.setProperty('position', 'absolute', 'important');
+          phoneBtn.style.setProperty('top', '0', 'important');
+          phoneBtn.style.setProperty('bottom', '0', 'important');
+          phoneBtn.style.setProperty('margin-top', 'auto', 'important');
+          phoneBtn.style.setProperty('margin-bottom', 'auto', 'important');
+          phoneBtn.style.setProperty('transform', 'none', 'important');
+          phoneBtn.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          
+          console.log('[Navbar] Phone button positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          phoneBtn.style.removeProperty('position');
+          phoneBtn.style.removeProperty('top');
+          phoneBtn.style.removeProperty('transform');
+          phoneBtn.style.removeProperty('z-index');
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared phone button inline positioning');
+        }
+      }
+    } else {
+      console.log('[Navbar] Could not parse background color:', bgColor);
+    }
+    
+    // MOBILE MENU TOGGLE
+    // Re-query in case DOM changed (mobileToggle already declared at top of function)
+    mobileToggle = document.getElementById('mobileToggle') ||
+                   document.querySelector('.mobile-toggle') ||
+                   document.querySelector('.hamburger') ||
+                   document.querySelector('.hamburger-menu') ||
+                   document.querySelector('.menu-toggle') ||
+                   document.querySelector('.burger-menu') ||
+                   document.querySelector('[aria-label="Menu"]') ||
+                   document.querySelector('[aria-label="תפריט"]');
+    
+    // EXPANDED SEARCH: Find nav menu by ID or class
+    const navMenu = document.getElementById('navMenu') ||
+                  document.querySelector('.nav-menu') ||
+                  document.querySelector('.nav-links') ||
+                  document.querySelector('nav ul:not(.submenu)');
+    
+    if (!mobileToggle || !navMenu) {
+      console.log('[Navbar] Mobile toggle or menu not found:', { toggle: !!mobileToggle, menu: !!navMenu });
+      return;
+    }
+    
+    // Ensure navMenu has ID for CSS targeting
+    if (!navMenu.id) {
+      navMenu.id = 'navMenu';
+    }
+    
+    console.log('[Navbar] Initializing mobile menu...');
+    
+    // Remove any existing event listeners by cloning the button
+    const newToggle = mobileToggle.cloneNode(true);
+    mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
+    
+    // Toggle menu handler (shared by click and touchend)
+    function handleToggle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+      const closeIcon = newToggle.querySelector('.close-icon');
+      const isActive = navMenu.classList.contains('active');
+      
+      if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
+        console.log('[Navbar] Menu closed');
+      } else {
+        // Open menu
+        navMenu.classList.add('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'none', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'block', 'important');
+        document.body.style.overflow = 'hidden';
+        document.body.classList.add('menu-open');
+        console.log('[Navbar] Menu opened');
+      }
+    }
+    
+    // Use click for desktop/emulation and touchend as iOS Safari fallback.
+    // Prevent double-fire with a timestamp guard.
+    var lastToggleTime = 0;
+    function guardedToggle(e) {
+      var now = Date.now();
+      if (now - lastToggleTime < 300) return;
+      lastToggleTime = now;
+      handleToggle(e);
+    }
+    
+    newToggle.addEventListener('click', guardedToggle);
+    newToggle.addEventListener('touchend', guardedToggle);
+
+    // Close the full-screen overlay menu on Escape
+    document.addEventListener('keydown', function(e) {
+      if ((e.key === 'Escape' || e.key === 'Esc') && navMenu.classList.contains('active')) {
+        const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+        const closeIcon = newToggle.querySelector('.close-icon');
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
+        console.log('[Navbar] Menu closed (Escape)');
+      }
+    });
+    
+    // Close menu when clicking nav links (but NOT dropdown toggles)
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Don't close if it's a dropdown child (unless it's a real navigation link)
+        if (this.getAttribute('href') === '#') return;
+        
+        const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+        const closeIcon = newToggle.querySelector('.close-icon');
+        
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
+        console.log('[Navbar] Menu closed (link clicked)');
+      });
+    });
+    
+    // DROPDOWN MENU TOGGLE (for mobile and touch devices)
+    var dropdownToggles = navMenu.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var parent = this.closest('.nav-dropdown');
+        if (!parent) return;
+        
+        // Close other open dropdowns at the same level
+        var siblings = parent.parentNode.querySelectorAll('.nav-dropdown.open');
+        siblings.forEach(function(sib) {
+          if (sib !== parent) sib.classList.remove('open');
+        });
+        
+        parent.classList.toggle('open');
+        console.log('[Navbar] Dropdown toggled:', parent.classList.contains('open') ? 'open' : 'closed');
+      });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        var openDropdowns = document.querySelectorAll('.nav-dropdown.open');
+        openDropdowns.forEach(function(dd) { dd.classList.remove('open'); });
+      }
+    });
+    
+    console.log('[Navbar] Dropdown handlers initialized for ' + dropdownToggles.length + ' dropdowns');
+    
+    // Phone button functionality (phoneBtn already declared at top of function)
+    if (phoneBtn) {
+      phoneBtn.addEventListener('click', function() {
+        // Get phone number from placeholder in page or use default
+        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+        const phoneNumber = phoneLinks.length > 0 
+          ? phoneLinks[0].getAttribute('href').replace('tel:', '')
+          : '[business_phone]';
+        
+        window.location.href = 'tel:' + phoneNumber;
+        console.log('[Navbar] Phone button clicked');
+      });
+    }
+    
+    console.log('[Navbar] Mobile menu initialized successfully');
+    
+    // WhatsApp button visibility is now controlled via CSS (siteSettings).
+    // No JS-based desktop hiding — the button is visible on both mobile and desktop by default.
+  });
+})();
+
+</script>
+  
+  <main id="main">
+    <section class="about-page-intro-section" data-layout-spec="אודות-page-intro">
+  <div class="about-page-intro-section__decor-top" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40,180 Q60,140 80,160 T120,140 Q140,120 160,150 T180,130" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity="0.25"/>
+      <circle cx="50" cy="170" r="3" fill="var(--accent)" opacity="0.3"/>
+      <circle cx="90" cy="150" r="4" fill="var(--accent)" opacity="0.25"/>
+      <circle cx="130" cy="155" r="2.5" fill="var(--accent)" opacity="0.3"/>
+      <circle cx="170" cy="140" r="3.5" fill="var(--accent)" opacity="0.2"/>
+      <path d="M30,160 Q50,120 70,140 T110,120" fill="none" stroke="var(--primary)" stroke-width="1" opacity="0.2"/>
+    </svg>
+  </div>
+  <div class="about-page-intro-section__decor-bottom" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="60" fill="none" stroke="var(--primary)" stroke-width="0.8" opacity="0.1"/>
+      <circle cx="20" cy="20" r="80" fill="none" stroke="var(--accent)" stroke-width="0.6" opacity="0.08"/>
+      <circle cx="20" cy="20" r="100" fill="none" stroke="var(--primary)" stroke-width="0.5" opacity="0.06"/>
+    </svg>
+  </div>
+  <div class="about-page-intro-section__container">
+    <article class="about-page-intro-section__content">
+      <h1 class="about-page-intro-section__title">הידיים, הלב, והחזון של רוזי תרפי</h1>
+      <div class="about-page-intro-section__accent-line"></div>
+      <p class="about-page-intro-section__text">
+        ברוכים הבאים אל המרחב שלי – מקום בו רוקחות טבעית נפגשת עם אמנות התכשיטים מאבני חן. 
+        אני מזמינה אתכם למסע של ריפוי, יצירה וחיבור עמוק אל עצמכם, דרך הידע הפרקטי והרגישות הרוחנית 
+        שמלווים אותי בכל יום. כאן תוכלו לגלות סדנאות מעשירות, תכשיטים ייחודיים טעונים באנרגיה מרפאה, 
+        ורוקחות טבעית המבוססת על חוכמת הצמחים – הכול עטוף באווירה חמה, מקבלת ומלאת קסם.
+      </p>
+      <div class="about-page-intro-section__actions">
+        <a href="#contact" class="about-page-intro-section__cta-primary">צרו קשר</a>
+        <a href="#workshops" class="about-page-intro-section__cta-ghost" style="color: #1A1A1A !important">לסדנאות הקרובות</a>
+      </div>
+    </article>
+    <figure class="about-page-intro-section__image-wrapper">
+      <div class="about-page-intro-section__image-frame">
+        <img loading="eager" fetchpriority="high" data-placeholder="about-page-intro-image-1" data-context="Warm portrait of a female holistic healer and artisan in a soft lavender botanical studio, surrounded by dried herbs, crystals, and handmade gemstone jewelry, natural lighting, misty atmosphere, editorial style" width="600" height="400" src="/assets/site-about-page-intro-image-1.webp" alt="המטפלת והיוצרת של רוזי תרפי בסטודיו הטבעי שלה">
+      </div>
+      <div class="about-page-intro-section__image-glow" aria-hidden="true"></div>
+      <div class="about-page-intro-section__botanical-touch" aria-hidden="true">
+        <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100,100 Q80,60 100,20 Q60,40 20,20 Q40,60 20,100 Q60,80 100,100 Z" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.3"/>
+          <path d="M90,110 Q70,70 90,30 Q50,50 10,30 Q30,70 10,110" fill="none" stroke="var(--primary)" stroke-width="0.8" opacity="0.2"/>
+          <circle cx="95" cy="25" r="2" fill="var(--accent)" opacity="0.4"/>
+          <circle cx="85" cy="15" r="1.5" fill="var(--accent)" opacity="0.3"/>
+          <circle cx="15" cy="25" r="2" fill="var(--accent)" opacity="0.4"/>
+        </svg>
+      </div>
+    </figure>
+  </div>
+  <div class="about-page-intro-section__divider-wrapper" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L0,35 Q50,30 100,38 T200,32 Q250,40 300,28 T400,36 Q450,30 500,40 T600,28 Q650,38 700,32 T800,40 Q850,28 900,38 T1000,32 Q1050,40 1100,28 T1200,36 L1200,80 Z" fill="var(--bg-dark)"/>
+      <defs>
+        <linearGradient id="about-intro-wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--bg-light)" stop-opacity="0.9"/>
+          <stop offset="50%" stop-color="#E8D5F0" stop-opacity="1"/>
+          <stop offset="100%" stop-color="var(--bg-light)" stop-opacity="0.9"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</section>
+
+<section class="about-philosophy-section" data-layout-spec="אודות-philosophy" dir="rtl">
+    <div class="philosophy-container">
+        <h2 class="philosophy-heading">פילוסופיית ריפוי — הקשבה עמוקה לטבע</h2>
+        <p class="philosophy-intro">המסע של רוזי תרפיה צומח מתוך אמונה שכל צמח, כל אבן וכל מגע אנושי נושאים בתוכם תדר מרפא. הגישה שלנו משלבת רוקחות טבעית, יצירת תכשיטים מאבני חן והנחיית סדנאות חווייתיות — כל אלו נובעים ממקום של הקשבה, כבוד ויצירה מתוך כוונה.</p>
+        
+        <div class="philosophy-grid">
+            <article class="philosophy-card">
+                <div class="card-icon-wrapper">
+                    <svg class="card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+                        <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.6"/>
+                        <path d="M24 8 C24 8 12 18 12 26 C12 32.6 17.4 38 24 38 C30.6 38 36 32.6 36 26 C36 18 24 8 24 8Z" fill="currentColor" opacity="0.8"/>
+                        <path d="M24 14 L24 30" stroke="var(--bg-dark)" stroke-width="1.5"/>
+                        <circle cx="24" cy="26" r="2" fill="var(--bg-dark)"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">הטבע הוא המורה</h3>
+                <p class="card-text">אנו מאמינות שהטבע הוא מקור החוכמה העמוק ביותר. כל צמח וכל גביש נושאים בתוכם ידע עתיק, ואנו לומדות מהם כיצד לתמוך בתהליכי ריפוי פיזיים ונפשיים. הרוקחות הטבעית שלנו מבוססת על הקשבה לצמחים, לעונות השנה ולמקצבים האורגניים של הגוף.</p>
+            </article>
+
+            <article class="philosophy-card">
+                <div class="card-icon-wrapper">
+                    <svg class="card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+                        <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.6"/>
+                        <path d="M24 6 L28 16 L38 16 L30 22 L34 32 L24 26 L14 32 L18 22 L10 16 L20 16 Z" fill="currentColor" opacity="0.8"/>
+                        <circle cx="24" cy="20" r="3" fill="var(--bg-dark)" opacity="0.7"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">היצירה היא טקס</h3>
+                <p class="card-text">כל תכשיט מאבני חן הנוצר בסטודיו שלנו טומן בחובו כוונה עמוקה. תהליך היצירה הוא טקס מדיטטיבי המחבר בין חומר לרוח, בין אבן לעור. אנו בוחרות כל גביש בקפידה, משלבות אותו במתכות אצילות ומטעינות אותו באנרגיה מרפאת — כך שכל פריט הופך לקמע אישי.</p>
+            </article>
+
+            <article class="philosophy-card">
+                <div class="card-icon-wrapper">
+                    <svg class="card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+                        <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.6"/>
+                        <path d="M24 8 C24 8 10 20 10 28 C10 34 14 38 20 38 C26 38 28 34 28 30 C28 24 20 18 20 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="20" cy="24" r="2" fill="currentColor" opacity="0.8"/>
+                        <path d="M30 20 C34 18 38 20 38 24 C38 28 34 30 30 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">הריפוי הוא מערכת יחסים</h3>
+                <p class="card-text">ריפוי אמיתי אינו מתרחש בבידוד — הוא נרקם במרחב של אמון, נוכחות וקשר. בסדנאות שלנו אנו יוצרות קהילה תומכת שבה כל משתתפת יכולה לגעת, לחוש וליצור. אנו מאמינות שריפוי הוא דיאלוג מתמשך בין הגוף, הנפש והסביבה — ואנו כאן כדי להנחות את השיחה הזו בעדינות.</p>
+            </article>
+        </div>
+
+        <div class="philosophy-cta-wrapper">
+            <a href="/contact" class="philosophy-cta btn-pill">גלי עוד על הסדנאות</a>
+        </div>
+    </div>
+
+    <!-- Bottom divider: sacred-geometry arc pattern -->
+    <div class="philosophy-divider-wrapper" aria-hidden="true" data-no-icon-edit="true">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="sacred-geo" x="0" y="0" width="60" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M30,0 Q30,40 60,40 Q30,40 30,80" fill="#FAF5FA" stroke="var(--accent)" stroke-width="0.8" opacity="0.25"/>
+                    <path d="M0,40 Q30,40 30,0" fill="#FAF5FA" stroke="var(--accent)" stroke-width="0.6" opacity="0.15"/>
+                    <path d="M30,80 Q30,40 60,40" fill="#FAF5FA" stroke="var(--accent)" stroke-width="0.6" opacity="0.15"/>
+                    <circle cx="30" cy="40" r="2" fill="var(--accent)" opacity="0.3"/>
+                </pattern>
+            </defs>
+            <rect x="0" y="0" width="1200" height="80" fill="url(#sacred-geo)"/>
+            <path d="M0,80 L0,35 Q75,30 150,38 T300,32 Q375,36 450,30 T600,35 Q675,32 750,38 T900,30 Q975,36 1050,32 T1200,35 L1200,80 Z" fill="#FAF5FA" opacity="0.95"/>
+            <path d="M0,80 L0,45 Q75,42 150,48 T300,44 Q375,46 450,42 T600,46 Q675,44 750,48 T900,44 Q975,46 1050,42 T1200,45 L1200,80 Z" fill="#FAF5FA" opacity="0.85"/>
+        </svg>
+    </div>
+
+    <!-- Decorative background motifs -->
+    <div class="philosophy-bg-mandala" aria-hidden="true">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.1"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.12"/>
+            <circle cx="100" cy="100" r="50" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.14"/>
+            <circle cx="100" cy="100" r="30" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.16"/>
+            <circle cx="100" cy="100" r="10" fill="var(--accent)" opacity="0.1"/>
+            <path d="M100,10 L100,190 M10,100 L190,100 M36,36 L164,164 M36,164 L164,36" stroke="var(--accent)" stroke-width="0.4" opacity="0.08"/>
+            <path d="M100,20 Q130,40 120,70 Q110,100 80,110 Q50,120 40,90 Q30,60 60,40 Q80,25 100,20Z" fill="none" stroke="var(--accent)" stroke-width="0.6" opacity="0.1"/>
+            <path d="M100,180 Q70,160 80,130 Q90,100 120,90 Q150,80 160,110 Q170,140 140,160 Q120,175 100,180Z" fill="none" stroke="var(--accent)" stroke-width="0.6" opacity="0.1"/>
+        </svg>
+    </div>
+    <div class="philosophy-bg-branch" aria-hidden="true">
+        <svg viewBox="0 0 180 300" xmlns="http://www.w3.org/2000/svg">
+            <path d="M90,300 Q85,250 80,200 Q75,150 90,100 Q100,60 95,20" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.15"/>
+            <path d="M80,200 Q50,180 30,160" fill="none" stroke="var(--accent)" stroke-width="0.8" opacity="0.12"/>
+            <path d="M85,150 Q110,130 130,110" fill="none" stroke="var(--accent)" stroke-width="0.8" opacity="0.12"/>
+            <path d="M88,100 Q60,80 40,60" fill="none" stroke="var(--accent)" stroke-width="0.7" opacity="0.1"/>
+            <circle cx="30" cy="160" r="3" fill="var(--accent)" opacity="0.15"/>
+            <circle cx="130" cy="110" r="2.5" fill="var(--accent)" opacity="0.15"/>
+            <circle cx="40" cy="60" r="2" fill="var(--accent)" opacity="0.12"/>
+            <circle cx="95" cy="20" r="3.5" fill="var(--accent)" opacity="0.18"/>
+            <path d="M30,160 Q20,155 15,145 Q10,135 20,130 Q30,125 35,135 Q40,145 30,160Z" fill="var(--accent)" opacity="0.08"/>
+            <path d="M130,110 Q140,105 145,95 Q150,85 140,80 Q130,75 125,85 Q120,95 130,110Z" fill="var(--accent)" opacity="0.08"/>
+            <path d="M95,20 Q105,15 108,5 Q111,-5 101,-8 Q91,-11 88,-1 Q85,9 95,20Z" fill="var(--accent)" opacity="0.1"/>
+        </svg>
+    </div>
+</section>
+
+<section class="about-journey-section" data-layout-spec="אודות-journey">
+  <div class="about-journey-section__container">
+    <!-- Decorative Botanical Column (START/Right) -->
+    <aside class="about-journey-section__botanical-col" aria-hidden="true">
+      <div class="about-journey-section__botanical-frame">
+        <img loading="lazy" decoding="async" data-placeholder="about-journey-image-1" data-context="Delicate watercolor botanical illustration of eucalyptus and lavender branches with soft moss-green and sage tones, surrounded by translucent rose quartz aura gradients, handmade paper texture background, spiritual and healing atmosphere for a natural wellness brand" width="600" height="900" src="/assets/site-about-journey-image-1.webp" alt="איור בוטני בצבעי מים של ענפי אקליפטוס ולבנדר">
+        <!-- Watercolor overlay texture -->
+        <div class="about-journey-section__watercolor-aura"></div>
+      </div>
+      <!-- Decorative gemstone accents -->
+      <div class="about-journey-section__gem-accent about-journey-section__gem-accent--top"></div>
+      <div class="about-journey-section__gem-accent about-journey-section__gem-accent--bottom"></div>
+    </aside>
+
+    <!-- Story Blocks Column (END/Left) -->
+    <div class="about-journey-section__story-col">
+      <header class="about-journey-section__header">
+        <span class="about-journey-section__kicker">המסע שלי</span>
+        <h2 class="about-journey-section__title">הדרך אל הריפוי<br>דרך הצומח והאבן</h2>
+        <div class="about-journey-section__divider-accent"></div>
+      </header>
+
+    <nav class="zappy-catalog-menu rtl" id="zappy-catalog-menu" dir="rtl" style="display:none">
+      <div class="catalog-menu-container">
+        <a href="/products" class="catalog-menu-item catalog-menu-all">מוצרים</a>
+        <div class="catalog-menu-categories" id="zappy-category-links">
+          <!-- Categories will be loaded dynamically -->
+        </div>
+      </div>
+    </nav>
+  
+
+      <div class="about-journey-section__story-blocks">
+        <!-- Story Block 1 -->
+        <article class="about-journey-section__story-block">
+          <div class="about-journey-section__story-marker">
+            <span class="about-journey-section__story-number">01</span>
+            <div class="about-journey-section__story-line"></div>
+          </div>
+          <div class="about-journey-section__story-content">
+            <h3 class="about-journey-section__story-title">גילוי רפואת הצמחים</h3>
+            <p class="about-journey-section__story-text">הכול התחיל בחיפוש אחר שקט פנימי. בין שבילי ההרים והגינות הנסתרות, גיליתי את עולם הרוקחות הטבעית — שורשים, עלים ופרחים שהפכו לבני לוויה למסע הריפוי שלי. למדתי להקשיב לאדמה, לזהות את סגולות הצמחים, ולרקוח תרכובות שמזינות את הגוף והנשמה גם יחד.</p>
+          </div>
+        </article>
+
+        <!-- Story Block 2 -->
+        <article class="about-journey-section__story-block">
+          <div class="about-journey-section__story-marker">
+            <span class="about-journey-section__story-number">02</span>
+            <div class="about-journey-section__story-line"></div>
+          </div>
+          <div class="about-journey-section__story-content">
+            <h3 class="about-journey-section__story-title">יצירה ולמידה דרך הידיים</h3>
+            <p class="about-journey-section__story-text">המעבר מתיאוריה לעשייה היה רגע מכונן. התחלתי ליצור במו ידיי — ללמוד את אמנות מיצוי השמנים, ייבוש עשבי המרפא, וערבוב הפורמולות הראשונות שלי. כל ניסוי במטבחון הקטן היה שיעור בסבלנות, בדיוק ובחיבור עמוק לחומרי הגלם שהטבע מעניק לנו בנדיבות.</p>
+          </div>
+        </article>
+
+        <!-- Story Block 3 -->
+        <article class="about-journey-section__story-block">
+          <div class="about-journey-section__story-marker">
+            <span class="about-journey-section__story-number">03</span>
+            <div class="about-journey-section__story-line"></div>
+          </div>
+          <div class="about-journey-section__story-content">
+            <h3 class="about-journey-section__story-title">העבודה עם אבני החן</h3>
+            <p class="about-journey-section__story-text">במקביל לעולם הצמחים, נמשכתי אל האנרגיה העדינה של אבני החן. למדתי לזהות את התדרים הייחודיים של כל אבן — מקוורץ ורוד מרגיע ועד אמטיסט מטהר — ולשבץ אותן בתכשיטים בעבודת יד. <strong>תכשיטים מאבני חן</strong> הפכו עבורי לדרך נוספת להעניק לאחרים כלי לריפוי יומיומי, כזה שנוגע בעור ומזכיר את היופי שבפנים.</p>
+          </div>
+        </article>
+
+        <!-- Story Block 4 -->
+        <article class="about-journey-section__story-block">
+          <div class="about-journey-section__story-marker">
+            <span class="about-journey-section__story-number">04</span>
+            <div class="about-journey-section__story-line"></div>
+          </div>
+          <div class="about-journey-section__story-content">
+            <h3 class="about-journey-section__story-title">סדנאות כמרחב ריפוי משותף</h3>
+            <p class="about-journey-section__story-text">הרגע שבו הבנתי שאני רוצה לחלוק את הידע הגיע בשקט. פתחתי את ה<b>סדנאות</b> הראשונות שלי — מפגשים אינטימיים שבהם אנחנו לומדים יחד <b>רוקחות טבעית</b>, יוצרים תכשיטים אישיים, ומתחברים לקהילה שמאמינה בריפוי עדין ומודע. כל סדנה היא מסע קטן אל תוך עצמנו, מונחה על ידי הצמחים והאבנים שמלווים אותי בדרך.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom divider: watercolor botanical field edge -->
+  <div class="about-journey-section__divider-wrapper" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="about-journey-watercolor-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#FAF5FA" stop-opacity="0.9"/>
+          <stop offset="40%" stop-color="#F0E8F0" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#2F2536" stop-opacity="1"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,120 L0,65 Q30,55 60,58 T120,48 Q150,55 180,50 T240,62 Q270,48 300,55 T360,45 Q390,58 420,50 T480,62 Q510,48 540,55 T600,42 Q630,55 660,48 T720,60 Q750,45 780,52 T840,58 Q870,50 900,55 T960,45 Q990,58 1020,50 T1080,62 Q1110,48 1140,55 T1200,48 L1200,120 Z" fill="#2A1A35"/>
+      <!-- Delicate botanical line detail -->
+      <path d="M0,68 Q60,52 120,55 Q180,44 240,65 Q300,48 360,58 Q420,50 480,65 Q540,48 600,58 Q660,45 720,63 Q780,48 840,61 Q900,52 960,60 Q1020,48 1080,65 Q1140,52 1200,58" fill="#2A1A35" stroke="#6D8465" stroke-width="0.8" stroke-opacity="0.3"/>
+    </svg>
+  </div>
+</section>
+
+<section class="about-closing-note-section" data-layout-spec="אודות-closing-note">
+    <div class="about-closing-note-section__container">
+        <!-- Decorative Sacred Geometry Background -->
+        <div class="about-closing-note-section__bg-decor" aria-hidden="true">
+            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" class="about-closing-note-section__mandala">
+                <circle cx="300" cy="300" r="250" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.1"/>
+                <circle cx="300" cy="300" r="200" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.15"/>
+                <circle cx="300" cy="300" r="150" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.2"/>
+                <path d="M300,300 L300,50 M300,300 L300,550 M300,300 L50,300 M300,300 L550,300 M300,300 L123,123 M300,300 L477,477 M300,300 L123,477 M300,300 L477,123" stroke="var(--accent)" stroke-width="0.5" opacity="0.15"/>
+                <polygon points="300,100 327,217 450,217 343,290 368,407 300,334 232,407 257,290 150,217 273,217" fill="none" stroke="var(--primary)" stroke-width="1" opacity="0.12"/>
+            </svg>
+        </div>
+
+        <!-- Main Content -->
+        <div class="about-closing-note-section__content">
+            <!-- Image Detail -->
+            <div class="about-closing-note-section__image-wrapper">
+                <img loading="lazy" decoding="async" data-placeholder="about-closing-note-image-1" data-context="Soft, warm close-up of hands gently holding a cluster of raw amethyst crystals and dried lavender herbs, bathed in amber and plum ambient light, shallow depth of field, spiritual and grounding atmosphere" width="600" height="400" src="/assets/site-about-closing-note-image-1.webp" alt="ידיים אוחזות גבישי אמטיסט ועשבי מרפא" class="about-closing-note-section__image">
+                <!-- Amber Glow Overlay -->
+                <div class="about-closing-note-section__image-aura" aria-hidden="true"></div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="about-closing-note-section__text">
+                <h2 class="about-closing-note-section__heading">את מוזמנת לכאן</h2>
+                <p class="about-closing-note-section__paragraph">
+                    המרחב של רוזי תרפי נפתח עבורך בלב רחב. אם את מתלבטת איזו סדנה תתאים לך, 
+                    איזה תכשיט מאבן חן יהדהד את הכוונה הפנימית שלך, או שאת פשוט רוצה לשאול שאלה 
+                    על רוקחות טבעית — אני כאן. בואי נדבר, נכיר, ונמצא יחד את השער הנכון דרכו תיכנסי 
+                    אל עולם של ריפוי, יצירה וטבע.
+                </p>
+                <a href="/contact" class="about-closing-note-section__cta">
+                    <span>צרי קשר</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+  </main>
+  
+  <footer class="site-footer" dir="rtl">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-col footer-brand-col">
+        <img src="/assets/rozi-therapy-natural-wellness-holistic-healing-logo.webp" alt="Rozi Therapy" class="logo">
+        <p class="footer-tagline">מקדש דיגיטלי מקודש לריפוי הוליסטי, בית מרקחת טבעי, תכשיטי אבני חן וסדנאות מרפא.</p>
+      </div>
+      <div class="footer-col footer-links-col">
+        <h4>ניווט מהיר</h4>
+        <ul class="footer-links">
+          <li><a href="/">בית</a></li>
+          <li><a href="/natural-pharmacy">בית מרקחת טבעי</a></li>
+          <li><a href="/gemstone-jewelry">תכשיטי אבני חן</a></li>
+          <li><a href="/workshops">סדנאות</a></li>
+          <li><a href="/about">אודות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact-col">
+        <h4>צור קשר</h4>
+        <ul class="footer-contact">
+          <li>
+            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+            <span class="contact-text"><a href="mailto:[business_email]">[business_email]</a></span>
+          </li>
+          <li>
+            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+            <span class="contact-text"><a href="tel:[business_phone]">[business_phone]</a></span>
+          </li>
+          <li><a href="/"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+            <span class="contact-text">[business_address]</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-hours-col">
+        <h4>שעות פעילות</h4>
+        <ul class="footer-hours">
+          <li><a href="/"><span class="hours-day">ימים א'–ה'</span> <span class="hours-time">09:00–18:00</span></a></li>
+          <li><a href="/"><span class="hours-day">יום ו'</span> <span class="hours-time">09:00–13:00</span></a></li>
+          <li><a href="/"><span class="hours-day">שבת</span> <span class="hours-time">סגור</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-social-col">
+        <h4>עקבו אחרינו</h4>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" data-zappy-social-placeholder="true"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram" data-zappy-social-placeholder="true"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp" data-zappy-social-placeholder="true"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p class="footer-copyright">© 2026 Rozi Therapy. כל הזכויות שמורות.</p>
+      </div>
+      <div class="footer-bottom-right">
+        <div class="footer-legal">
+          <a href="/privacy">מדיניות פרטיות</a>
+          <span class="legal-divider">|</span>
+          <a href="/terms">תנאי שימוש</a><span class="separator">|</span>
+            <a href="/return-policy" aria-label="מדיניות החזרות">
+              מדיניות החזרות
+            </a>
+          <span class="legal-divider">|</span>
+          <a href="/accessibility">נגישות</a>
+        </div>
+        <a href="https://zappy5.com" target="_blank" class="zappy-attribution" rel="noopener">נוצר באמצעות Zappy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <div class="zappy-qv-overlay" id="zappy-qv-overlay" hidden></div>
+<div class="zappy-qv-modal" id="zappy-qv-modal" role="dialog" aria-modal="true" aria-label="תצוגה מהירה" hidden>
+  <button type="button" class="zappy-qv-close" id="zappy-qv-close" aria-label="סגור">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="zappy-qv-content" id="zappy-qv-content"></div>
+</div>
+    <div data-integration="accessibility:toolbar"></div>
+
+    <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+</body>
+</html>
