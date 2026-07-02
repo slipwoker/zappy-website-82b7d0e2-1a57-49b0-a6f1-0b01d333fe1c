@@ -878,12 +878,12 @@
 </script>
   
   <main id="main">
-    <section data-band-index="0" class="index-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-scrim">
+    <section data-band-index="0" class="index-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-scrim" id="index-hero-section" data-zappy-bg-overlay-color="#000000" data-zappy-bg-overlay-opacity="28">
   <!-- Full-bleed background image -->
-  <img loading="eager" fetchpriority="high" data-hero-bg="true" class="hero-bg-image" data-placeholder="index-hero-image-1" data-context="A calm sacred workspace viewed from above, featuring dried lavender bundles, antique glass apothecary bottles with cork stoppers, scattered amethyst and rose quartz gemstone beads, a glowing beeswax candle, soft moss-green botanical accents, and handmade textured paper. Warm amber candlelight creates soft lavender and plum shadows. Shot with a shallow depth of field, editorial still-life style." width="1200" height="600" src="/assets/site-index-hero-image-1.webp" alt="מרחב מרפא עם צמחי מרפא, בקבוקי זכוכית ואבני חן">
+  <div data-zappy-zoom-wrapper="true" data-element-id="img-1783003827214-lcw0z2wgv" data-element-type="image" data-zappy-zoom-wrapper-width-mode="full" style="position: absolute !important; top: 0px !important; left: 0px !important; width: 100% !important; height: 100% !important; max-width: none !important; margin-left: 0px !important; margin-right: 0px !important; z-index: 1 !important; overflow: hidden !important;" data-zappy-zoom-clip="true" data-zappy-wrapper-margins-applied="true" data-zappy-zoom-wrapper-align="center"><img loading="eager" fetchpriority="high" data-hero-bg="true" class="hero-bg-image" data-placeholder="index-hero-image-1" data-context="A calm sacred workspace viewed from above, featuring dried lavender bundles, antique glass apothecary bottles with cork stoppers, scattered amethyst and rose quartz gemstone beads, a glowing beeswax candle, soft moss-green botanical accents, and handmade textured paper. Warm amber candlelight creates soft lavender and plum shadows. Shot with a shallow depth of field, editorial still-life style." width="1200" height="600" src="/assets/site-index-hero-image-1.webp" alt="מרחב מרפא עם צמחי מרפא, בקבוקי זכוכית ואבני חן" data-hero-background="true" data-element-type="image" data-element-id="img-1783003827214-lcw0z2wgv" style="pointer-events: auto !important; object-position: 50% 40% !important; margin: 0px !important; position: absolute !important; left: 0% !important; top: 0% !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; display: block !important; object-fit: cover !important;" data-zappy-zoom="1" data-zappy-hero-img-base-opacity="1" data-zappy-hero-img-base-blend="normal" data-zappy-object-position="50% 40%"></div>
 
   <!-- Scrim overlay for text legibility -->
-  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true" data-zappy-gradient-scrim="true" data-zappy-scrim-base-opacity="52" style="opacity: 0.538462;"></div>
 
   <!-- Decorative sacred-geometry mandala ornament -->
   <div class="hero-mandala-ornament" aria-hidden="true">
@@ -1133,6 +1133,133 @@
     <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="services-divider-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E0A94F" stop-opacity="0.6"></stop>
+          <stop offset="50%" stop-color="#D4A0B5" stop-opacity="0.8"></stop>
+          <stop offset="100%" stop-color="#7E5AA7" stop-opacity="0.9"></stop>
+        </linearGradient>
+      </defs>
+      <!-- Main gradient band filling the bottom -->
+      <path d="M0,80 L0,45 Q60,35 120,48 T240,42 Q300,50 360,38 T480,45 Q540,35 600,48 T720,42 Q780,50 840,38 T960,45 Q1020,35 1080,48 T1200,42 L1200,80 Z" fill="#2A1A35"></path>
+      <!-- Dotted constellation curve overlay -->
+      <path d="M0,50 Q60,40 120,53 T240,47 Q300,55 360,43 T480,50 Q540,40 600,53 T720,47 Q780,55 840,43 T960,50 Q1020,40 1080,53 T1200,47" stroke="#F8F2FA" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round" fill="#2A1A35" opacity="0.7"></path>
+      <!-- Tiny star dots along the curve -->
+      <circle cx="60" cy="47" r="1.5" fill="#F8F2FA" opacity="0.8"></circle>
+      <circle cx="180" cy="50" r="1" fill="#F8F2FA" opacity="0.6"></circle>
+      <circle cx="300" cy="46" r="1.5" fill="#F8F2FA" opacity="0.8"></circle>
+      <circle cx="420" cy="51" r="1" fill="#F8F2FA" opacity="0.6"></circle>
+      <circle cx="540" cy="48" r="1.5" fill="#F8F2FA" opacity="0.8"></circle>
+      <circle cx="660" cy="50" r="1" fill="#F8F2FA" opacity="0.6"></circle>
+      <circle cx="780" cy="46" r="1.5" fill="#F8F2FA" opacity="0.8"></circle>
+      <circle cx="900" cy="51" r="1" fill="#F8F2FA" opacity="0.6"></circle>
+      <circle cx="1020" cy="48" r="1.5" fill="#F8F2FA" opacity="0.8"></circle>
+      <circle cx="1140" cy="50" r="1" fill="#F8F2FA" opacity="0.6"></circle>
+    </svg>
+  </div>
+</section><section data-band-index="2" class="index-services-section" data-layout-spec="בית-services" id="section-1783004084144-bjk04t4v4">
+  <!-- Decorative celestial motif -->
+  <svg class="index-services-section__celestial-motif" data-element-type="icon" data-icon-type="svg" aria-hidden="true" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100,20 L100,45 M100,155 L100,180 M20,100 L45,100 M155,100 L180,100" stroke="currentColor" stroke-width="1" opacity="0.4"></path>
+    <circle cx="100" cy="100" r="3" fill="currentColor" opacity="0.3"></circle>
+    <circle cx="130" cy="60" r="1.5" fill="currentColor" opacity="0.25"></circle>
+    <circle cx="70" cy="140" r="1.5" fill="currentColor" opacity="0.25"></circle>
+    <circle cx="150" cy="120" r="1" fill="currentColor" opacity="0.2"></circle>
+    <circle cx="50" cy="80" r="1" fill="currentColor" opacity="0.2"></circle>
+    <path d="M100,55 Q105,75 100,95 Q95,75 100,55Z" fill="currentColor" opacity="0.15"></path>
+    <path d="M60,100 Q80,105 100,100 Q80,95 60,100Z" fill="currentColor" opacity="0.15"></path>
+    <path d="M100,105 Q105,125 100,145 Q95,125 100,105Z" fill="currentColor" opacity="0.15"></path>
+    <path d="M140,100 Q160,105 180,100 Q160,95 140,100Z" fill="currentColor" opacity="0.15"></path>
+  </svg>
+
+  <!-- Decorative mandala ornament -->
+  <svg class="index-services-section__mandala-ornament" data-element-type="icon" data-icon-type="svg" aria-hidden="true" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.15"></circle>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.15"></circle>
+    <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.15"></circle>
+    <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.15"></circle>
+    <circle cx="100" cy="100" r="10" fill="currentColor" opacity="0.1"></circle>
+    <path d="M100,10 L105,40 L135,45 L105,50 L100,80 L95,50 L65,45 L95,40 Z" fill="currentColor" opacity="0.12"></path>
+    <path d="M100,190 L105,160 L135,155 L105,150 L100,120 L95,150 L65,155 L95,160 Z" fill="currentColor" opacity="0.12"></path>
+    <path d="M10,100 L40,95 L45,65 L50,95 L80,100 L50,105 L45,135 L40,105 Z" fill="currentColor" opacity="0.12"></path>
+    <path d="M190,100 L160,95 L155,65 L150,95 L120,100 L150,105 L155,135 L160,105 Z" fill="currentColor" opacity="0.12"></path>
+  </svg>
+
+  <div class="index-services-section__container">
+    <!-- Content Column (START / Right in RTL) -->
+    <div class="index-services-section__content">
+      <h2 class="index-services-section__heading">ריפוי שנרקם בידיים</h2>
+      <p class="index-services-section__description">במרחב של רוזי תרפי, כל מפגש הוא מסע אל תוך עולם הריפוי הטבעי. אני מזמינה אותך לגלות את הכוח המרפא של צמחי מרפא, את האנרגיה העדינה של אבני חן, ואת החיבור העמוק שבין גוף, נפש ורוח. כאן, הרוקחות הטבעית פוגשת את אמנות התכשיטים, והכל נוצר בכוונה, באהבה ובידיים.</p>
+      
+      <ul class="index-services-section__services-list">
+        <li class="index-services-section__service-item">
+          <div class="index-services-section__service-icon-wrapper">
+            <svg class="index-services-section__service-icon" data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8 2 4 5 4 9C4 14 12 22 12 22C12 22 20 14 20 9C20 5 16 2 12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div class="index-services-section__service-text">
+            <h3 class="index-services-section__service-title">תכשיטים מאבני חן</h3>
+            <p class="index-services-section__service-desc">תכשיטים בעבודת יד הנוצרים כקמעות אישיים – כל אבן נבחרת בקפידה כדי להדהד את הכוונה והאנרגיה הייחודית שלך, ומלווה אותך במסע האישי.</p>
+          </div>
+        </li>
+        <li class="index-services-section__service-item">
+          <div class="index-services-section__service-icon-wrapper">
+            <svg class="index-services-section__service-icon" data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div class="index-services-section__service-text">
+            <h3 class="index-services-section__service-title">רוקחות טבעית</h3>
+            <p class="index-services-section__service-desc">הכנות בוטניות אישיות והדרכה ברוקחות טבעית – שמנים, משחות, חליטות ותמציות מצמחי מרפא הגדלים באהבה, המותאמים לצרכים המדויקים של הגוף והנפש.</p>
+          </div>
+        </li>
+        <li class="index-services-section__service-item">
+          <div class="index-services-section__service-icon-wrapper">
+            <svg class="index-services-section__service-icon" data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 21V19C17 16.7909 15.2091 15 13 15H11C8.79086 15 7 16.7909 7 19V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <circle cx="18" cy="10" r="0.5" fill="currentColor" opacity="0.6"></circle>
+              <circle cx="20" cy="8" r="0.5" fill="currentColor" opacity="0.4"></circle>
+              <circle cx="21" cy="12" r="0.5" fill="currentColor" opacity="0.3"></circle>
+            </svg>
+          </div>
+          <div class="index-services-section__service-text">
+            <h3 class="index-services-section__service-title">סדנאות עונתיות</h3>
+            <p class="index-services-section__service-desc">מפגשי עומק חווייתיים סביב צמחי מרפא, אבני חן, טקסים וטיפוח עצמי – מרחב קהילתי ללמידה, יצירה וחיבור למחזוריות הטבעית של החיים.</p>
+          </div>
+        </li>
+      </ul>
+      
+      <a href="#contact" class="index-services-section__cta btn-pill">צרי קשר למסע האישי שלך</a>
+    </div>
+
+    <!-- Image Mosaic Column (END / Left in RTL) -->
+    <div class="index-services-section__mosaic">
+      <div class="index-services-section__mosaic-main">
+        <img loading="lazy" decoding="async" data-placeholder="index-services-image-1" data-context="A warm, atmospheric close-up of a mortar and pestle with fresh green herbs, dried flowers, and a small amber bottle of natural remedy on a textured linen cloth, soft natural light, shallow depth of field, editorial style" width="600" height="400" src="/assets/site-index-services-image-1.webp" alt="עלי כותרת וצמחי מרפא טריים במכתש ועלי, רוקחות טבעית" class="index-services-section__mosaic-img index-services-section__mosaic-img--main">
+        <img loading="lazy" decoding="async" data-placeholder="index-services-image-2" data-context="Hands gently holding a strand of rough amethyst and rose quartz gemstones on a piece of natural linen, soft diffused window light, warm and spiritual atmosphere" width="600" height="400" src="/assets/site-index-services-image-2.webp" alt="ידיים אוחזות בשרשרת אבני חן אמטיסט ורוז קוורץ על בד פשתן" class="index-services-section__mosaic-img index-services-section__mosaic-img--secondary">
+        <img loading="lazy" decoding="async" data-placeholder="index-services-image-3" data-context="A small square detail shot of hands delicately preparing a natural herbal remedy with dried lavender and chamomile, soft focus background with apothecary jars, intimate and tactile" width="400" height="400" src="/assets/site-index-services-image-3.webp" alt="הכנת תרופה טבעית מצמחי מרפא בידיים, צנצנות אפוטקריות ברקע" class="index-services-section__mosaic-img index-services-section__mosaic-img--accent">
+        <!-- Decorative botanical linework -->
+        <svg class="index-services-section__botanical-linework" data-element-type="icon" data-icon-type="svg" aria-hidden="true" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50,10 Q55,40 50,70 T50,130 T50,190" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.3"></path>
+          <path d="M50,40 Q35,30 25,35 Q30,40 50,40" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.25"></path>
+          <path d="M50,70 Q65,60 75,65 Q70,70 50,70" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.25"></path>
+          <path d="M50,100 Q35,90 25,95 Q30,100 50,100" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.25"></path>
+          <path d="M50,130 Q65,120 75,125 Q70,130 50,130" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.25"></path>
+          <circle cx="25" cy="35" r="2" fill="currentColor" opacity="0.3"></circle>
+          <circle cx="75" cy="65" r="2" fill="currentColor" opacity="0.3"></circle>
+          <circle cx="25" cy="95" r="2" fill="currentColor" opacity="0.3"></circle>
+          <circle cx="75" cy="125" r="2" fill="currentColor" opacity="0.3"></circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Divider: Luminous rose-quartz-to-amethyst gradient with dotted constellation curve -->
+  <div class="index-services-section__divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="services-divider-grad-dup-1783004084144-0" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#E0A94F" stop-opacity="0.6"></stop>
           <stop offset="50%" stop-color="#D4A0B5" stop-opacity="0.8"></stop>
           <stop offset="100%" stop-color="#7E5AA7" stop-opacity="0.9"></stop>
