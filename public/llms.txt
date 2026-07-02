@@ -7,77 +7,77 @@
 ## Pages
 
 ### בית
-https://rozi-therapy-82b7d0e2.zappy5.app
+https://example.com
 התחברו לעולם קסום של רוקחות טבעית, תכשיטים מאבני חן וסדנאות מעוררות השראה. Rozi Therapy מזמינה אתכם למסע אל הריפוי הפנימי שלכם. כנסו עכשיו וגלו את המקדש שלכם.
 
 ### בית מרקחת טבעי
-https://rozi-therapy-82b7d0e2.zappy5.app/natural-pharmacy
+https://example.com/natural-pharmacy
 גלו את סודות הרוקחות הטבעית עם פורמולות ייחודיות שנרקחו באהבה. צמחי מרפא, שמנים ותמציות לאיזון הגוף והנפש. התחילו את מסע הריפוי האישי שלכם עוד היום.
 
 ### תכשיטי אבני חן
-https://rozi-therapy-82b7d0e2.zappy5.app/gemstone-jewelry
+https://example.com/gemstone-jewelry
 ענדו את הקסם עם תכשיטים מאבני חן בעבודת יד, המשלבים יופי ואנרגיה מרפאה. כל פריט נוצר כקמע אישי להעצמה ואיזון. היכנסו לקולקציה ותמצאו את האבן שלכם.
 
 ### סדנאות
-https://rozi-therapy-82b7d0e2.zappy5.app/workshops
+https://example.com/workshops
 הצטרפו לסדנאות ייחודיות של רוקחות טבעית ויצירה באבני חן. חוויה קהילתית מעשירה שתחבר אתכם לכוחות הריפוי הפנימיים. בדקו את לוח הסדנאות הקרובות והבטיחו את מקומכם.
 
 ### אודות
-https://rozi-therapy-82b7d0e2.zappy5.app/about
+https://example.com/about
 מסע אל נבכי החזון של Rozi Therapy – מקום מפגש בין רוקחות טבעית לאומנות תכשיטים מאבני חן. קראו על הפילוסופיה, ההשראה והדרך שהובילה ליצירת המרחב המקודש הזה.
 
 ### צור קשר
-https://rozi-therapy-82b7d0e2.zappy5.app/contact
+https://example.com/contact
 מוכנים להתחיל את המסע שלכם? צרו קשר עם Rozi Therapy לכל שאלה על תכשיטים מאבני חן, רוקחות טבעית או הרשמה לסדנאות. אנחנו כאן כדי להאיר את הדרך שלכם.
 
 ### Products
-https://rozi-therapy-82b7d0e2.zappy5.app/products
+https://example.com/products
 המוצרים שלנו - Rozi Therapy
 
 ### Cart
-https://rozi-therapy-82b7d0e2.zappy5.app/cart
+https://example.com/cart
 עגלת הקניות שלך
 
 ### Checkout
-https://rozi-therapy-82b7d0e2.zappy5.app/checkout
+https://example.com/checkout
 תשלום
 
 ### Login
-https://rozi-therapy-82b7d0e2.zappy5.app/login
+https://example.com/login
 התחברות לקוחות
 
 ### Account
-https://rozi-therapy-82b7d0e2.zappy5.app/account
+https://example.com/account
 החשבון שלי
 
 ### Order Success
-https://rozi-therapy-82b7d0e2.zappy5.app/order-success
+https://example.com/order-success
 תודה על ההזמנה
 
 ### Product Detail
-https://rozi-therapy-82b7d0e2.zappy5.app/product/:slug
+https://example.com/product/:slug
 פרטי המוצר - Rozi Therapy
 
 ### Category
-https://rozi-therapy-82b7d0e2.zappy5.app/category/:slug
+https://example.com/category/:slug
 מוצרים - Rozi Therapy
 
 ### תודה רבה | רוזי תרפיה
-https://rozi-therapy-82b7d0e2.zappy5.app/thank-you
+https://example.com/thank-you
 תודה על פנייתך לרוזי תרפיה. הודעתך התקבלה בהצלחה ונחזור אליך בהקדם האפשרי.
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://rozi-therapy-82b7d0e2.zappy5.app/privacy
+https://example.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://rozi-therapy-82b7d0e2.zappy5.app/terms
+https://example.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://rozi-therapy-82b7d0e2.zappy5.app/accessibility
+https://example.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
@@ -110,8 +110,8 @@ Natural Wellness & Holistic Healing
 
 # Machine-readable feeds
 
-- Sitemap (XML): https://rozi-therapy-82b7d0e2.zappy5.app/sitemap.xml
-- Robots: https://rozi-therapy-82b7d0e2.zappy5.app/robots.txt
-- Flattened page text (for LLMs): https://rozi-therapy-82b7d0e2.zappy5.app/llms-full.txt
-- Products (JSON): https://rozi-therapy-82b7d0e2.zappy5.app/products.json
-- Products (Google Merchant RSS): https://rozi-therapy-82b7d0e2.zappy5.app/product-feed.xml
+- Sitemap (XML): https://example.com/sitemap.xml
+- Robots: https://example.com/robots.txt
+- Flattened page text (for LLMs): https://example.com/llms-full.txt
+- Products (JSON): https://example.com/products.json
+- Products (Google Merchant RSS): https://example.com/product-feed.xml
